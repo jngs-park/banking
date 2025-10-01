@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/articles")
-public class ArticleController {햣
+public class ArticleController {
     private final ArticleRepository articleRepository;
 
     public ArticleController(ArticleRepository articleRepository) {
