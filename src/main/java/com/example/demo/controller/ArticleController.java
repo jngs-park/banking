@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
-@RequestMapping("/articles")
+    @RestController
+    @RequestMapping("/articles")
     public class ArticleController {
         private final ArticleRepository articleRepository;
         private final ArticleEventService articleEventService;
@@ -44,4 +44,12 @@ import java.util.Map;
         return response;
     }
 
+        @GetMapping("/cache")
+        public Map<String, Object> getLastArticleFromCache() {
+            String lastArticle = redisCacheService.getLastArticle();
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("lastArticle", lastArticle != null ? lastArticle : "캐시된 글이 없습니다.");
+            return response;
+        }
 }

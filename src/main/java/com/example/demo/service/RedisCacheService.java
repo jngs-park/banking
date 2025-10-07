@@ -20,4 +20,9 @@ import org.springframework.stereotype.Service;
         public String getArticle(String key) {
         return redisTemplate.opsForValue().get(key);
     }
+
+    // ✅ 캐시 조회용 메서드
+        public String getLastArticle() {
+        return redisTemplate.opsForValue().get("lastArticle");
+    }
 }
